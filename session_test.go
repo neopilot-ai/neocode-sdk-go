@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package neocode_test
+package githubcomneopilotaineocodesdkgo_test
 
 import (
 	"context"
@@ -22,12 +22,12 @@ func TestSessionNew(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.New(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -44,12 +44,12 @@ func TestSessionList(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.List(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -66,12 +66,12 @@ func TestSessionDelete(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Delete(context.TODO(), "id")
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -88,12 +88,12 @@ func TestSessionAbort(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Abort(context.TODO(), "id")
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -110,35 +110,35 @@ func TestSessionChatWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Chat(
 		context.TODO(),
 		"id",
-		neocode.SessionChatParams{
-			ModelID: neocode.F("modelID"),
-			Parts: neocode.F([]neocode.SessionChatParamsPartUnion{neocode.TextPartInputParam{
-				Text:      neocode.F("text"),
-				Type:      neocode.F(neocode.TextPartInputTypeText),
-				ID:        neocode.F("id"),
-				Synthetic: neocode.F(true),
-				Time: neocode.F(neocode.TextPartInputTimeParam{
-					Start: neocode.F(0.000000),
-					End:   neocode.F(0.000000),
+		githubcomneopilotaineocodesdkgo.SessionChatParams{
+			ModelID: githubcomneopilotaineocodesdkgo.F("modelID"),
+			Parts: githubcomneopilotaineocodesdkgo.F([]githubcomneopilotaineocodesdkgo.SessionChatParamsPartUnion{githubcomneopilotaineocodesdkgo.TextPartInputParam{
+				Text:      githubcomneopilotaineocodesdkgo.F("text"),
+				Type:      githubcomneopilotaineocodesdkgo.F(githubcomneopilotaineocodesdkgo.TextPartInputTypeText),
+				ID:        githubcomneopilotaineocodesdkgo.F("id"),
+				Synthetic: githubcomneopilotaineocodesdkgo.F(true),
+				Time: githubcomneopilotaineocodesdkgo.F(githubcomneopilotaineocodesdkgo.TextPartInputTimeParam{
+					Start: githubcomneopilotaineocodesdkgo.F(0.000000),
+					End:   githubcomneopilotaineocodesdkgo.F(0.000000),
 				}),
 			}}),
-			ProviderID: neocode.F("providerID"),
-			MessageID:  neocode.F("msg"),
-			Mode:       neocode.F("mode"),
-			System:     neocode.F("system"),
-			Tools: neocode.F(map[string]bool{
+			ProviderID: githubcomneopilotaineocodesdkgo.F("providerID"),
+			MessageID:  githubcomneopilotaineocodesdkgo.F("msg"),
+			Mode:       githubcomneopilotaineocodesdkgo.F("mode"),
+			System:     githubcomneopilotaineocodesdkgo.F("system"),
+			Tools: githubcomneopilotaineocodesdkgo.F(map[string]bool{
 				"foo": true,
 			}),
 		},
 	)
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -155,20 +155,20 @@ func TestSessionInit(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Init(
 		context.TODO(),
 		"id",
-		neocode.SessionInitParams{
-			MessageID:  neocode.F("messageID"),
-			ModelID:    neocode.F("modelID"),
-			ProviderID: neocode.F("providerID"),
+		githubcomneopilotaineocodesdkgo.SessionInitParams{
+			MessageID:  githubcomneopilotaineocodesdkgo.F("messageID"),
+			ModelID:    githubcomneopilotaineocodesdkgo.F("modelID"),
+			ProviderID: githubcomneopilotaineocodesdkgo.F("providerID"),
 		},
 	)
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -185,12 +185,12 @@ func TestSessionMessages(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Messages(context.TODO(), "id")
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -207,19 +207,19 @@ func TestSessionRevertWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Revert(
 		context.TODO(),
 		"id",
-		neocode.SessionRevertParams{
-			MessageID: neocode.F("msg"),
-			PartID:    neocode.F("prt"),
+		githubcomneopilotaineocodesdkgo.SessionRevertParams{
+			MessageID: githubcomneopilotaineocodesdkgo.F("msg"),
+			PartID:    githubcomneopilotaineocodesdkgo.F("prt"),
 		},
 	)
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -236,12 +236,12 @@ func TestSessionShare(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Share(context.TODO(), "id")
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -258,19 +258,19 @@ func TestSessionSummarize(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Summarize(
 		context.TODO(),
 		"id",
-		neocode.SessionSummarizeParams{
-			ModelID:    neocode.F("modelID"),
-			ProviderID: neocode.F("providerID"),
+		githubcomneopilotaineocodesdkgo.SessionSummarizeParams{
+			ModelID:    githubcomneopilotaineocodesdkgo.F("modelID"),
+			ProviderID: githubcomneopilotaineocodesdkgo.F("providerID"),
 		},
 	)
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -287,12 +287,12 @@ func TestSessionUnrevert(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Unrevert(context.TODO(), "id")
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -309,12 +309,12 @@ func TestSessionUnshare(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Unshare(context.TODO(), "id")
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
