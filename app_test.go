@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package neocode_test
+package githubcomneopilotaineocodesdkgo_test
 
 import (
 	"context"
@@ -22,12 +22,12 @@ func TestAppGet(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.App.Get(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -44,12 +44,12 @@ func TestAppInit(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.App.Init(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -66,19 +66,19 @@ func TestAppLogWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.App.Log(context.TODO(), neocode.AppLogParams{
-		Level:   neocode.F(neocode.AppLogParamsLevelDebug),
-		Message: neocode.F("message"),
-		Service: neocode.F("service"),
-		Extra: neocode.F(map[string]interface{}{
+	_, err := client.App.Log(context.TODO(), githubcomneopilotaineocodesdkgo.AppLogParams{
+		Level:   githubcomneopilotaineocodesdkgo.F(githubcomneopilotaineocodesdkgo.AppLogParamsLevelDebug),
+		Message: githubcomneopilotaineocodesdkgo.F("message"),
+		Service: githubcomneopilotaineocodesdkgo.F("service"),
+		Extra: githubcomneopilotaineocodesdkgo.F(map[string]interface{}{
 			"foo": "bar",
 		}),
 	})
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -95,12 +95,12 @@ func TestAppModes(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.App.Modes(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -117,12 +117,12 @@ func TestAppProviders(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.App.Providers(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

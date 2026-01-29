@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package neocode
+package githubcomneopilotaineocodesdkgo
 
 import (
 	"github.com/neopilot-ai/neocode-sdk-go/internal/apierror"

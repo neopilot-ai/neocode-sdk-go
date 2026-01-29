@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package neocode_test
+package githubcomneopilotaineocodesdkgo_test
 
 import (
 	"context"
@@ -22,14 +22,14 @@ func TestFileRead(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.File.Read(context.TODO(), neocode.FileReadParams{
-		Path: neocode.F("path"),
+	_, err := client.File.Read(context.TODO(), githubcomneopilotaineocodesdkgo.FileReadParams{
+		Path: githubcomneopilotaineocodesdkgo.F("path"),
 	})
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -46,12 +46,12 @@ func TestFileStatus(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.File.Status(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

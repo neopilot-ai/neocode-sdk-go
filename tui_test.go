@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package neocode_test
+package githubcomneopilotaineocodesdkgo_test
 
 import (
 	"context"
@@ -22,14 +22,14 @@ func TestTuiAppendPrompt(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Tui.AppendPrompt(context.TODO(), neocode.TuiAppendPromptParams{
-		Text: neocode.F("text"),
+	_, err := client.Tui.AppendPrompt(context.TODO(), githubcomneopilotaineocodesdkgo.TuiAppendPromptParams{
+		Text: githubcomneopilotaineocodesdkgo.F("text"),
 	})
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -46,12 +46,12 @@ func TestTuiOpenHelp(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Tui.OpenHelp(context.TODO())
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

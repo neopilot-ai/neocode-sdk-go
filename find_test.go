@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package neocode_test
+package githubcomneopilotaineocodesdkgo_test
 
 import (
 	"context"
@@ -22,14 +22,14 @@ func TestFindFiles(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Find.Files(context.TODO(), neocode.FindFilesParams{
-		Query: neocode.F("query"),
+	_, err := client.Find.Files(context.TODO(), githubcomneopilotaineocodesdkgo.FindFilesParams{
+		Query: githubcomneopilotaineocodesdkgo.F("query"),
 	})
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -46,14 +46,14 @@ func TestFindSymbols(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Find.Symbols(context.TODO(), neocode.FindSymbolsParams{
-		Query: neocode.F("query"),
+	_, err := client.Find.Symbols(context.TODO(), githubcomneopilotaineocodesdkgo.FindSymbolsParams{
+		Query: githubcomneopilotaineocodesdkgo.F("query"),
 	})
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -70,14 +70,14 @@ func TestFindText(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Find.Text(context.TODO(), neocode.FindTextParams{
-		Pattern: neocode.F("pattern"),
+	_, err := client.Find.Text(context.TODO(), githubcomneopilotaineocodesdkgo.FindTextParams{
+		Pattern: githubcomneopilotaineocodesdkgo.F("pattern"),
 	})
 	if err != nil {
-		var apierr *neocode.Error
+		var apierr *githubcomneopilotaineocodesdkgo.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

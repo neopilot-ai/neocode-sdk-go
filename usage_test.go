@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package neocode_test
+package githubcomneopilotaineocodesdkgo_test
 
 import (
 	"context"
@@ -20,7 +20,7 @@ func TestUsage(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := neocode.NewClient(
+	client := githubcomneopilotaineocodesdkgo.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	t.Skip("Prism tests are disabled")
