@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package githubcomneopilotaineocodesdkgo
+package neocode
 
 import (
 	"github.com/neopilot-ai/neocode-sdk-go/internal/apierror"
@@ -11,6 +11,9 @@ type Error = apierror.Error
 
 // This is an alias to an internal type.
 type MessageAbortedError = shared.MessageAbortedError
+
+// This is an alias to an internal type.
+type MessageAbortedErrorData = shared.MessageAbortedErrorData
 
 // This is an alias to an internal type.
 type MessageAbortedErrorName = shared.MessageAbortedErrorName

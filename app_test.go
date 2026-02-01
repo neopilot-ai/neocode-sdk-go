@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package githubcomneopilotaineocodesdkgo_test
+package neocode_test
 
 import (
 	"context"
@@ -13,50 +13,6 @@ import (
 	"github.com/neopilot-ai/neocode-sdk-go/option"
 )
 
-func TestAppGet(t *testing.T) {
-	t.Skip("Prism tests are disabled")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
-		option.WithBaseURL(baseURL),
-	)
-	_, err := client.App.Get(context.TODO())
-	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestAppInit(t *testing.T) {
-	t.Skip("Prism tests are disabled")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
-		option.WithBaseURL(baseURL),
-	)
-	_, err := client.App.Init(context.TODO())
-	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
 func TestAppLogWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
@@ -66,19 +22,20 @@ func TestAppLogWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.App.Log(context.TODO(), githubcomneopilotaineocodesdkgo.AppLogParams{
-		Level:   githubcomneopilotaineocodesdkgo.F(githubcomneopilotaineocodesdkgo.AppLogParamsLevelDebug),
-		Message: githubcomneopilotaineocodesdkgo.F("message"),
-		Service: githubcomneopilotaineocodesdkgo.F("service"),
-		Extra: githubcomneopilotaineocodesdkgo.F(map[string]interface{}{
+	_, err := client.App.Log(context.TODO(), neocode.AppLogParams{
+		Level:     neocode.F(neocode.AppLogParamsLevelDebug),
+		Message:   neocode.F("message"),
+		Service:   neocode.F("service"),
+		Directory: neocode.F("directory"),
+		Extra: neocode.F(map[string]interface{}{
 			"foo": "bar",
 		}),
 	})
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -86,7 +43,7 @@ func TestAppLogWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestAppModes(t *testing.T) {
+func TestAppProvidersWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -95,34 +52,14 @@ func TestAppModes(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.App.Modes(context.TODO())
+	_, err := client.App.Providers(context.TODO(), neocode.AppProvidersParams{
+		Directory: neocode.F("directory"),
+	})
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestAppProviders(t *testing.T) {
-	t.Skip("Prism tests are disabled")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
-		option.WithBaseURL(baseURL),
-	)
-	_, err := client.App.Providers(context.TODO())
-	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

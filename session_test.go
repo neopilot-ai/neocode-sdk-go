@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package githubcomneopilotaineocodesdkgo_test
+package neocode_test
 
 import (
 	"context"
@@ -13,7 +13,7 @@ import (
 	"github.com/neopilot-ai/neocode-sdk-go/option"
 )
 
-func TestSessionNew(t *testing.T) {
+func TestSessionNewWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -22,12 +22,16 @@ func TestSessionNew(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Session.New(context.TODO())
+	_, err := client.Session.New(context.TODO(), neocode.SessionNewParams{
+		Directory: neocode.F("directory"),
+		ParentID:  neocode.F("sesJ!"),
+		Title:     neocode.F("title"),
+	})
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -35,7 +39,7 @@ func TestSessionNew(t *testing.T) {
 	}
 }
 
-func TestSessionList(t *testing.T) {
+func TestSessionUpdateWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -44,101 +48,19 @@ func TestSessionList(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Session.List(context.TODO())
-	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestSessionDelete(t *testing.T) {
-	t.Skip("Prism tests are disabled")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
-		option.WithBaseURL(baseURL),
-	)
-	_, err := client.Session.Delete(context.TODO(), "id")
-	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestSessionAbort(t *testing.T) {
-	t.Skip("Prism tests are disabled")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
-		option.WithBaseURL(baseURL),
-	)
-	_, err := client.Session.Abort(context.TODO(), "id")
-	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
-		if errors.As(err, &apierr) {
-			t.Log(string(apierr.DumpRequest(true)))
-		}
-		t.Fatalf("err should be nil: %s", err.Error())
-	}
-}
-
-func TestSessionChatWithOptionalParams(t *testing.T) {
-	t.Skip("Prism tests are disabled")
-	baseURL := "http://localhost:4010"
-	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
-		baseURL = envURL
-	}
-	if !testutil.CheckTestServer(t, baseURL) {
-		return
-	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
-		option.WithBaseURL(baseURL),
-	)
-	_, err := client.Session.Chat(
+	_, err := client.Session.Update(
 		context.TODO(),
 		"id",
-		githubcomneopilotaineocodesdkgo.SessionChatParams{
-			ModelID: githubcomneopilotaineocodesdkgo.F("modelID"),
-			Parts: githubcomneopilotaineocodesdkgo.F([]githubcomneopilotaineocodesdkgo.SessionChatParamsPartUnion{githubcomneopilotaineocodesdkgo.TextPartInputParam{
-				Text:      githubcomneopilotaineocodesdkgo.F("text"),
-				Type:      githubcomneopilotaineocodesdkgo.F(githubcomneopilotaineocodesdkgo.TextPartInputTypeText),
-				ID:        githubcomneopilotaineocodesdkgo.F("id"),
-				Synthetic: githubcomneopilotaineocodesdkgo.F(true),
-				Time: githubcomneopilotaineocodesdkgo.F(githubcomneopilotaineocodesdkgo.TextPartInputTimeParam{
-					Start: githubcomneopilotaineocodesdkgo.F(0.000000),
-					End:   githubcomneopilotaineocodesdkgo.F(0.000000),
-				}),
-			}}),
-			ProviderID: githubcomneopilotaineocodesdkgo.F("providerID"),
-			MessageID:  githubcomneopilotaineocodesdkgo.F("msg"),
-			Mode:       githubcomneopilotaineocodesdkgo.F("mode"),
-			System:     githubcomneopilotaineocodesdkgo.F("system"),
-			Tools: githubcomneopilotaineocodesdkgo.F(map[string]bool{
-				"foo": true,
-			}),
+		neocode.SessionUpdateParams{
+			Directory: neocode.F("directory"),
+			Title:     neocode.F("title"),
 		},
 	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -146,7 +68,7 @@ func TestSessionChatWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestSessionInit(t *testing.T) {
+func TestSessionListWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -155,20 +77,190 @@ func TestSessionInit(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.List(context.TODO(), neocode.SessionListParams{
+		Directory: neocode.F("directory"),
+	})
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionDeleteWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Delete(
+		context.TODO(),
+		"sesJ!",
+		neocode.SessionDeleteParams{
+			Directory: neocode.F("directory"),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionAbortWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Abort(
+		context.TODO(),
+		"id",
+		neocode.SessionAbortParams{
+			Directory: neocode.F("directory"),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionChildrenWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Children(
+		context.TODO(),
+		"sesJ!",
+		neocode.SessionChildrenParams{
+			Directory: neocode.F("directory"),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionCommandWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Command(
+		context.TODO(),
+		"id",
+		neocode.SessionCommandParams{
+			Arguments: neocode.F("arguments"),
+			Command:   neocode.F("command"),
+			Directory: neocode.F("directory"),
+			Agent:     neocode.F("agent"),
+			MessageID: neocode.F("msgJ!"),
+			Model:     neocode.F("model"),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionGetWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Get(
+		context.TODO(),
+		"sesJ!",
+		neocode.SessionGetParams{
+			Directory: neocode.F("directory"),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionInitWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Init(
 		context.TODO(),
 		"id",
-		githubcomneopilotaineocodesdkgo.SessionInitParams{
-			MessageID:  githubcomneopilotaineocodesdkgo.F("messageID"),
-			ModelID:    githubcomneopilotaineocodesdkgo.F("modelID"),
-			ProviderID: githubcomneopilotaineocodesdkgo.F("providerID"),
+		neocode.SessionInitParams{
+			MessageID:  neocode.F("msgJ!"),
+			ModelID:    neocode.F("modelID"),
+			ProviderID: neocode.F("providerID"),
+			Directory:  neocode.F("directory"),
 		},
 	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -176,7 +268,7 @@ func TestSessionInit(t *testing.T) {
 	}
 }
 
-func TestSessionMessages(t *testing.T) {
+func TestSessionMessageWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -185,12 +277,99 @@ func TestSessionMessages(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Session.Messages(context.TODO(), "id")
+	_, err := client.Session.Message(
+		context.TODO(),
+		"id",
+		"messageID",
+		neocode.SessionMessageParams{
+			Directory: neocode.F("directory"),
+		},
+	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionMessagesWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Messages(
+		context.TODO(),
+		"id",
+		neocode.SessionMessagesParams{
+			Directory: neocode.F("directory"),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionPromptWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Prompt(
+		context.TODO(),
+		"id",
+		neocode.SessionPromptParams{
+			Parts: neocode.F([]neocode.SessionPromptParamsPartUnion{neocode.TextPartInputParam{
+				Text: neocode.F("text"),
+				Type: neocode.F(neocode.TextPartInputTypeText),
+				ID:   neocode.F("id"),
+				Metadata: neocode.F(map[string]interface{}{
+					"foo": "bar",
+				}),
+				Synthetic: neocode.F(true),
+				Time: neocode.F(neocode.TextPartInputTimeParam{
+					Start: neocode.F(0.000000),
+					End:   neocode.F(0.000000),
+				}),
+			}}),
+			Directory: neocode.F("directory"),
+			Agent:     neocode.F("agent"),
+			MessageID: neocode.F("msgJ!"),
+			Model: neocode.F(neocode.SessionPromptParamsModel{
+				ModelID:    neocode.F("modelID"),
+				ProviderID: neocode.F("providerID"),
+			}),
+			NoReply: neocode.F(true),
+			System:  neocode.F("system"),
+			Tools: neocode.F(map[string]bool{
+				"foo": true,
+			}),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -207,19 +386,20 @@ func TestSessionRevertWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Revert(
 		context.TODO(),
 		"id",
-		githubcomneopilotaineocodesdkgo.SessionRevertParams{
-			MessageID: githubcomneopilotaineocodesdkgo.F("msg"),
-			PartID:    githubcomneopilotaineocodesdkgo.F("prt"),
+		neocode.SessionRevertParams{
+			MessageID: neocode.F("msgJ!"),
+			Directory: neocode.F("directory"),
+			PartID:    neocode.F("prtJ!"),
 		},
 	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -227,7 +407,7 @@ func TestSessionRevertWithOptionalParams(t *testing.T) {
 	}
 }
 
-func TestSessionShare(t *testing.T) {
+func TestSessionShareWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -236,12 +416,18 @@ func TestSessionShare(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Session.Share(context.TODO(), "id")
+	_, err := client.Session.Share(
+		context.TODO(),
+		"id",
+		neocode.SessionShareParams{
+			Directory: neocode.F("directory"),
+		},
+	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -249,7 +435,7 @@ func TestSessionShare(t *testing.T) {
 	}
 }
 
-func TestSessionSummarize(t *testing.T) {
+func TestSessionShellWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -258,19 +444,50 @@ func TestSessionSummarize(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
+		option.WithBaseURL(baseURL),
+	)
+	_, err := client.Session.Shell(
+		context.TODO(),
+		"id",
+		neocode.SessionShellParams{
+			Agent:     neocode.F("agent"),
+			Command:   neocode.F("command"),
+			Directory: neocode.F("directory"),
+		},
+	)
+	if err != nil {
+		var apierr *neocode.Error
+		if errors.As(err, &apierr) {
+			t.Log(string(apierr.DumpRequest(true)))
+		}
+		t.Fatalf("err should be nil: %s", err.Error())
+	}
+}
+
+func TestSessionSummarizeWithOptionalParams(t *testing.T) {
+	t.Skip("Prism tests are disabled")
+	baseURL := "http://localhost:4010"
+	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
+		baseURL = envURL
+	}
+	if !testutil.CheckTestServer(t, baseURL) {
+		return
+	}
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
 	_, err := client.Session.Summarize(
 		context.TODO(),
 		"id",
-		githubcomneopilotaineocodesdkgo.SessionSummarizeParams{
-			ModelID:    githubcomneopilotaineocodesdkgo.F("modelID"),
-			ProviderID: githubcomneopilotaineocodesdkgo.F("providerID"),
+		neocode.SessionSummarizeParams{
+			ModelID:    neocode.F("modelID"),
+			ProviderID: neocode.F("providerID"),
+			Directory:  neocode.F("directory"),
 		},
 	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -278,7 +495,7 @@ func TestSessionSummarize(t *testing.T) {
 	}
 }
 
-func TestSessionUnrevert(t *testing.T) {
+func TestSessionUnrevertWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -287,12 +504,18 @@ func TestSessionUnrevert(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Session.Unrevert(context.TODO(), "id")
+	_, err := client.Session.Unrevert(
+		context.TODO(),
+		"id",
+		neocode.SessionUnrevertParams{
+			Directory: neocode.F("directory"),
+		},
+	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -300,7 +523,7 @@ func TestSessionUnrevert(t *testing.T) {
 	}
 }
 
-func TestSessionUnshare(t *testing.T) {
+func TestSessionUnshareWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -309,12 +532,18 @@ func TestSessionUnshare(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Session.Unshare(context.TODO(), "id")
+	_, err := client.Session.Unshare(
+		context.TODO(),
+		"sesJ!",
+		neocode.SessionUnshareParams{
+			Directory: neocode.F("directory"),
+		},
+	)
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

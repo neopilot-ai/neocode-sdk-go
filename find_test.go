@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package githubcomneopilotaineocodesdkgo_test
+package neocode_test
 
 import (
 	"context"
@@ -13,7 +13,7 @@ import (
 	"github.com/neopilot-ai/neocode-sdk-go/option"
 )
 
-func TestFindFiles(t *testing.T) {
+func TestFindFilesWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -22,14 +22,15 @@ func TestFindFiles(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Find.Files(context.TODO(), githubcomneopilotaineocodesdkgo.FindFilesParams{
-		Query: githubcomneopilotaineocodesdkgo.F("query"),
+	_, err := client.Find.Files(context.TODO(), neocode.FindFilesParams{
+		Query:     neocode.F("query"),
+		Directory: neocode.F("directory"),
 	})
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -37,7 +38,7 @@ func TestFindFiles(t *testing.T) {
 	}
 }
 
-func TestFindSymbols(t *testing.T) {
+func TestFindSymbolsWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -46,14 +47,15 @@ func TestFindSymbols(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Find.Symbols(context.TODO(), githubcomneopilotaineocodesdkgo.FindSymbolsParams{
-		Query: githubcomneopilotaineocodesdkgo.F("query"),
+	_, err := client.Find.Symbols(context.TODO(), neocode.FindSymbolsParams{
+		Query:     neocode.F("query"),
+		Directory: neocode.F("directory"),
 	})
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -61,7 +63,7 @@ func TestFindSymbols(t *testing.T) {
 	}
 }
 
-func TestFindText(t *testing.T) {
+func TestFindTextWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -70,14 +72,15 @@ func TestFindText(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := githubcomneopilotaineocodesdkgo.NewClient(
+	client := neocode.NewClient(
 		option.WithBaseURL(baseURL),
 	)
-	_, err := client.Find.Text(context.TODO(), githubcomneopilotaineocodesdkgo.FindTextParams{
-		Pattern: githubcomneopilotaineocodesdkgo.F("pattern"),
+	_, err := client.Find.Text(context.TODO(), neocode.FindTextParams{
+		Pattern:   neocode.F("pattern"),
+		Directory: neocode.F("directory"),
 	})
 	if err != nil {
-		var apierr *githubcomneopilotaineocodesdkgo.Error
+		var apierr *neocode.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
