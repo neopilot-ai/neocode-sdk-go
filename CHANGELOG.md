@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 (2026-02-01)
+
+Full Changelog: [v0.1.0...v0.1.1](https://github.com/neopilot-ai/neocode-sdk-go/compare/v0.1.0...v0.1.1)
+
 ## 0.19.2 (2025-12-18)
 
 Full Changelog: [v0.19.1...v0.1.0](https://github.com/neopilot-ai/neocode-sdk-go/compare/v0.19.1...v0.1.0)
